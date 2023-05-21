@@ -4,9 +4,6 @@
 	<body>
 		<!-- 1. O atributo 'action' não deveria ter sido especificado, já que as regras de negócio
 		foram implementadas no próprio arquivo e o valor padrão desse atributo é o mesmo arquivo -->
-
-		<!-- 2. O atributo 'method' deveria receber 'get', pois a intenção da página
-		é fazer uma consulta e não criar/alterar/deletar um registro no servidor -->
 		<form action="idex.php" method="post">
 		<label> Insira o CEP: </label>
 		<input type="text" name="cep">>
@@ -20,15 +17,15 @@ if(!empty($_POST['cep'])){
 	
 	$cep = $_POST['cep'];
 
-	/* 3. A função 'get_address' recebeu como parâmetro uma variável
-	inexistente, o nome correto da variável é '$cep' e não '$cp'*/
+	/* 2. A variável 'cp' não existe, o nome correto é 'cep' */
 	$address = (get_address($cp));
 
 	echo "<br><br>CEP Informado: $cep<br>";
-
-	/* 4. O nome da variável está incorreto, o correto é 'address' e não 'addres' */
+	/* 3. A variável 'addres' e a propriedade 'logradoro' não existem,
+	os nomes corretos são 'address' e 'logradouro', respectivamente */
 	echo "Rua: $addres->logradoro<br>";
 	echo "Bairro: $address->bairro<br>";
+	/* 4. A variável 'adress' não existe, o nome correto é 'address' */
 	echo "Estado: $adress->uf<br>";
 }
 
@@ -37,7 +34,7 @@ function get_address($cep){
 	
 	$cep = preg_replace("/[^0-9]/", "", $cep);
 
-	/* 5. A url está incorreta, pois após o 'ws' há uma '/' */
+	/* 5. A url é inválida, a url correta é 'http://viacep.com.br/ws/$cep/xml/' */
 	$url = "http://viacep.com.br/ws$cep/xml/";
 
 	$xml = simplexml_load_file($url);
