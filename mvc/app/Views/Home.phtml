@@ -1,0 +1,15 @@
+<html>
+	<title> MEU CEP </title>
+	<body>
+		<form method="get">
+		<label> Insira o CEP: </label>
+		<input type="text" name="cep" required>
+		<input type="submit" value="Enviar">
+        <?php if(isset($address)): ?>
+            <br><br>CEP Informado: <?=$addres->cep;?><br>
+            Rua: <?=$address->logradouro;?><br>
+            Bairro: <?=$address->bairro;?><br>
+            Estado: <?=$address->uf;?><br>
+        <?php endif; ?>
+	</body>
+</html>
