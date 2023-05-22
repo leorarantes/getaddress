@@ -1,0 +1,17 @@
+{
+	"name": "vendor/mycep",
+	"require": {
+		"php": ">= 7.0"
+	},
+	"authors": [
+		{
+			"name": "Leonardo Arantes"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"App\\": "app/",
+			"MF\\": "vendor/MF/"
+		}
+	}
+}
